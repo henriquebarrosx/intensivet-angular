@@ -1,0 +1,180 @@
+.body-container {
+    display: flex;
+    height: 100vh;
+    background-color: #FFFFFF;
+
+    .left-side {
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        position: relative;
+        background-color: #6c929b;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+        }
+    }
+
+    .right-side {
+        width: 50%;
+        padding: 16px;
+
+        .logo-container {
+            width: 100%;
+            display: flex;
+            margin-top: 42px;
+            align-items: center;
+            justify-content: center;
+
+            .logo-img {
+                height: 60px;
+            }
+        }
+
+
+        .content-box {
+            margin: auto;
+            max-width: 420px;
+            margin: 16vh auto 24px;
+
+            h1 {
+                color: #111726;
+                font-size: 2rem;
+
+                margin-bottom: 12px;
+            }
+
+            span {
+                font-size: 1rem;
+                color: #858891;
+            }
+
+            form {
+                gap: 16px;
+                display: flex;
+                margin-top: 28px;
+                flex-direction: column;
+
+                input {
+                    height: 42px;
+                    padding: 0 16px;
+                    font-size: 1.2rem;
+                    border-radius: 6px;
+                    border: 1px solid #ccc;
+
+                    &:focus {
+                        outline: none;
+                        border-color: #0cd0ed;
+                        transition: border-color 0.3s;
+                    }
+                }
+
+                .helper-section {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .remember-access {
+                        gap: 6px;
+                        display: flex;
+                        align-items: center;
+                        user-select: none;
+                        font-size: 1rem;
+                    }
+
+                    .forgot-password-btn {
+                        color: #329fc4;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 1rem;
+                        background-color: inherit;
+
+                        &:hover {
+                            opacity: 0.7;
+                            transition: ease-in-out 0.3s;
+                        }
+                    }
+                }
+
+                button[type="submit"] {
+                    font-size: 1rem;
+                    height: 42px;
+                    border: none;
+                    color: #FFF;
+                    cursor: pointer;
+                    border-radius: 6px;
+                    text-transform: uppercase;
+                    background-color: #0cd0ed;
+
+                    &:hover {
+                        opacity: 0.7;
+                        transition: ease-in-out 0.3s;
+                    }
+                }
+            }
+        }
+
+        .sign-up-section {
+            gap: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                color: #858891;
+            }
+
+            a {
+                cursor: pointer;
+                color: #329fc4;
+                transition: ease-in-out 0.3s;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .body-container {
+        .right-side {
+            width: 100%;
+            margin-top: 0px;
+
+            .content-box {
+                margin-top: 64px;
+            }
+        }
+
+        .left-side {
+            display: none;
+        }
+
+    }
+}
+
+@media (max-width: 400px) {
+    .body-container {
+        .right-side {
+            width: 100%;
+            padding: 0 16px;
+
+            .sign-up-section {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .left-side {
+            display: none;
+        }
+    }
+}

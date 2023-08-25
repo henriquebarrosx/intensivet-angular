@@ -1,0 +1,47 @@
+<div class="body-container">
+    <div class="left-side">
+        <img src="assets/sign-in-wallpaper.png" loading="lazy" />
+    </div>
+
+    <div class="right-side">
+        <div class="logo-container">
+            <app-logo class="logo-img"></app-logo>
+        </div>
+
+        <div class="content-box">
+            <h1 class="font-black">
+                Login
+            </h1>
+
+            <span class="font-regular">
+                Bem-vindo novamente, preencha suas credenciais.
+            </span>
+
+            <form (ngSubmit)="signIn($event)">
+                <input type="email" placeholder="example@gmail.com" formControlName="email" class="font-regular" />
+                <input type="password" placeholder="********" formControlName="password" class="font-regular" />
+
+                <div class="helper-section">
+                    <div class="remember-access">
+                        <input id="remember-access" type="checkbox" formControlName="rememberAccess"
+                            class="font-regular" />
+                        <label for="remember-access" class="font-regular">Lembrar acesso</label>
+                    </div>
+
+                    <button type="button" class="forgot-password-btn font-bold">
+                        Esqueci minha senha
+                    </button>
+                </div>
+
+                <button type="submit" class="font-bold">
+                    Entrar
+                </button>
+            </form>
+        </div>
+
+        <div class="sign-up-section">
+            <span class="font-regular">Ainda não possui uma conta?</span>
+            <a href="{{signUpPathname}}" class="font-bold">Cadastra-se</a>
+        </div>
+    </div>
+</div>

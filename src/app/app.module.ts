@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LogoComponent } from './components/logo/logo.component';
+import { SingInComponent } from './pages/sing-in/sing-in.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LogoComponent,
+    SingInComponent,
   ],
   imports: [
     BrowserModule,
