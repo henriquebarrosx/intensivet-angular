@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+select {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+
+    &:focus {
+        outline: none;
+        border-color: #0cd0ed;
+        transition: border-color 0.3s;
+    }
+}
