@@ -1,0 +1,53 @@
+<div class="body-container">
+    <div class="left-side">
+        <img src="assets/session-wallpaper.png" loading="lazy" />
+    </div>
+
+    <div class="right-side">
+        <div class="logo-container">
+            <app-logo class="logo-img"></app-logo>
+        </div>
+
+        <div class="content-box">
+            <h1 class="font-black">
+                Cadastrar
+            </h1>
+
+            <span class="font-regular">
+                Aproveite agora os benefícios da maior clínica com serviço de Teleinterconsulta da América do Sul.
+            </span>
+
+            <form (ngSubmit)="signUp($event)">
+                <input-select label="Selecione um perfil" [options]="profiles" (onSelect)="onProfileSelect($event)">
+                </input-select>
+
+                <span class="font-regular">
+                    {{getProfileDescriptionType()}}
+                </span>
+
+                <div class="form-actions">
+                    <button type="submit" class="font-bold continue">
+                        Continuar
+                    </button>
+
+                    <button type="button" class="font-bold return">
+                        Voltar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="sign-up-section">
+            <span class="font-regular">Já possui uma conta?</span>
+            <a href="{{signInPathname}}" class="font-bold">Entrar</a>
+        </div>
+    </div>
+</div>
+
+<!-- <input type="text" placeholder="Ex: John Doe" formControlName="fullName" class="font-regular" />
+                <input type="email" placeholder="example@gmail.com" formControlName="email" class="font-regular" />
+                <input type="password" placeholder="********" formControlName="password" class="font-regular" />
+                <input type="text" placeholder="(**) *****-****" formControlName="phoneNumber" class="font-regular" />
+                <input type="text" placeholder="Ex: São Paulo" formControlName="state" class="font-regular" />
+                <input type="text" placeholder="Ex: São Paulo" formControlName="city" class="font-regular" />
+                <input type="text" placeholder="Ex: São Paulo" formControlName="companyName" class="font-regular" /> -->

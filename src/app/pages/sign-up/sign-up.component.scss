@@ -39,7 +39,7 @@
         .content-box {
             margin: auto;
             max-width: 420px;
-            margin: 16vh auto 24px;
+            margin: 5vh auto 24px;
 
             h1 {
                 color: #111726;
@@ -51,6 +51,7 @@
             span {
                 font-size: 1rem;
                 color: #858891;
+                line-height: 22px;
             }
 
             form {
@@ -73,46 +74,45 @@
                     }
                 }
 
-                .helper-section {
+                .form-actions {
+                    width: 100%;
                     display: flex;
-                    align-items: center;
-                    justify-content: space-between;
+                    gap: 12px;
+                    flex-direction: column;
+                    margin-top: 24px;
 
-                    .remember-access {
-                        gap: 6px;
-                        display: flex;
-                        align-items: center;
-                        user-select: none;
+                    .return {
+                        width: 100%;
                         font-size: 1rem;
-                    }
-
-                    .forgot-password-btn {
-                        color: #329fc4;
-                        border: none;
+                        height: 42px;
+                        border: 1px solid #0cd0ed;
+                        color: #0cd0ed;
                         cursor: pointer;
-                        font-size: 1rem;
-                        background-color: inherit;
+                        border-radius: 6px;
+                        text-transform: uppercase;
+                        background-color: #FFFFFF;
 
                         &:hover {
                             opacity: 0.7;
                             transition: ease-in-out 0.3s;
                         }
                     }
-                }
 
-                button[type="submit"] {
-                    font-size: 1rem;
-                    height: 42px;
-                    border: none;
-                    color: #FFF;
-                    cursor: pointer;
-                    border-radius: 6px;
-                    text-transform: uppercase;
-                    background-color: #0cd0ed;
+                    .continue {
+                        width: 100%;
+                        font-size: 1rem;
+                        height: 42px;
+                        border: none;
+                        color: #FFF;
+                        cursor: pointer;
+                        border-radius: 6px;
+                        text-transform: uppercase;
+                        background-color: #0cd0ed;
 
-                    &:hover {
-                        opacity: 0.7;
-                        transition: ease-in-out 0.3s;
+                        &:hover {
+                            opacity: 0.7;
+                            transition: ease-in-out 0.3s;
+                        }
                     }
                 }
             }
