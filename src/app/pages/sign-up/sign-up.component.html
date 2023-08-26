@@ -24,19 +24,16 @@
             </span>
 
             <form (ngSubmit)="signUp($event)">
-                <input-select label="Selecione um perfil" [options]="profiles" (onSelect)="onProfileSelect($event)">
-                </input-select>
-
-                <span class="font-regular">
-                    {{getProfileDescriptionType()}}
-                </span>
+                <profile-step *ngIf="isFirstStep" [formGroup]="firstStepForm" [options]="profiles"
+                    (onSelect)="onProfileSelect($event)"></profile-step>
 
                 <div class="form-actions">
-                    <button type="submit" class="font-bold continue">
+                    <button type="button" (click)="advanceToNextStep()" class="font-bold continue">
                         Continuar
                     </button>
 
-                    <button type="button" class="font-bold return">
+                    <button *ngIf="isReturnButtonVisible" type="button" (click)="returnToPreviousStep()"
+                        class="font-bold return">
                         Voltar
                     </button>
                 </div>
@@ -45,7 +42,7 @@
 
         <div class="sign-up-section">
             <span class="font-regular">Já possui uma conta?</span>
-            <a href="{{signInPathname}}" class="font-bold">Entrar</a>
+            <a [href]="signInPathname" class="font-bold">Entrar</a>
         </div>
     </div>
 </div>

@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InputSelectOption } from '../../entities/InputSelectOption';
+import { Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
+import { InputSelectOption } from "../../entities/InputSelectOption";
 
 @Component({
-    selector: 'app-sign-up',
-    templateUrl: './sign-up.component.html',
-    styleUrls: ['./sign-up.component.scss']
+    selector: "app-sign-up",
+    templateUrl: "./sign-up.component.html",
+    styleUrls: ["./sign-up.component.scss"]
 })
 export class SignUpComponent {
-    public signInPathname: string = "/accounts/sign-in"
+    constructor(private formBuilder: FormBuilder) { }
 
     public profiles = [
         new InputSelectOption("clinic", "Clínica"),
@@ -16,45 +16,46 @@ export class SignUpComponent {
         new InputSelectOption("tutor", "Tutor"),
     ]
 
-    public signUpForm: FormGroup = this.formBuilder.group({
-        profile: [, [Validators.required]],
+    public firstStepForm = this.formBuilder.group({
+        profile: [this.profiles[0], [Validators.required]],
+    })
+
+    public secondStepForm = this.formBuilder.group({
         fullName: ["", [Validators.required]],
-        email: ["", [Validators.required, Validators.email]],
-        password: ["", [Validators.required]],
         phoneNumber: ["", [Validators.required]],
+        companyName: ["", [Validators.required]],
         state: ["", [Validators.required]],
         city: ["", [Validators.required]],
-        companyName: ["", [Validators.required]],
-    });
+    })
 
-    constructor(
-        private formBuilder: FormBuilder,
-    ) { }
+    public thirdStepForm = this.formBuilder.group({
+        email: ["", [Validators.required, Validators.email]],
+        password: ["", [Validators.required]],
+    })
 
-    getProfileDescriptionType(): string {
-        const profileField = this.signUpForm.get("profile")
-        const selectedProfileTypeValue = profileField?.value?.value
+    public signInPathname: string = "/accounts/sign-in"
+    public isReturnButtonVisible: boolean = false
 
-        const profiles: Record<string, string> = {
-            clinic: "Se você representa uma clínica veterinária ou estabelecimento de saúde animal.",
-            vet: "Se você é um profissional de medicina veterinária, seja autônomo ou vinculado a uma clínica.",
-            tutor: "Se você é o cuidador de um ou mais animais de estimação e está buscando assistência veterinária à distância.",
-        }
+    public currentFormGroupStep: number = 1
+    public isFirstStep = this.currentFormGroupStep === 1
+    public iSecondStep = this.currentFormGroupStep === 2
+    public isThirdStep = this.currentFormGroupStep === 3
 
-        return profiles[selectedProfileTypeValue]
-            ?? "Escolha o perfil que mais se adere a suas necessidades."
+    onProfileSelect(selectedProfile: string): void {
+        const profileValue = this.profiles.find((profile) => profile.value === selectedProfile)!
+        const profileField = this.firstStepForm.get("profile")!
+        profileField.setValue(profileValue)
     }
 
-    onProfileSelect(selectedProfile: InputSelectOption): void {
-        const profileField = this.signUpForm.get("profile")!
-        profileField.setValue(selectedProfile)
+    advanceToNextStep(): void {
+        this.currentFormGroupStep++
+    }
+
+    returnToPreviousStep(): void {
+        this.currentFormGroupStep--
     }
 
     async signUp(event: any): Promise<void> {
         event.preventDefault();
-
-        if (this.signUpForm.valid) {
-
-        }
     }
 }

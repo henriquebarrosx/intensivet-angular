@@ -1,0 +1,9 @@
+<div>
+    <input-select id="profiles-field" label="Selecione um perfil" [value]="value" [options]="options"
+        placeholder="Selecione um perfil" (onSelect)="onProfileSelect($event)">
+    </input-select>
+
+    <span class="font-regular">
+        {{getProfileDescription()}}
+    </span>
+</div>

@@ -7,16 +7,16 @@ import { InputSelectOption } from '../../entities/InputSelectOption';
     styleUrls: ['./input-select.component.scss']
 })
 export class InputSelectComponent {
-    @Input() id: string = ""
-    @Input() label: string = ""
-    @Input() value: string = ""
-    @Input() options: InputSelectOption[] = []
-    @Input() placeholder: string = "Selecione uma opção"
-    @Output() onSelect = new EventEmitter<InputSelectOption>();
+    @Input() id: string = "";
+    @Input() label: string = "";
+    @Input() value: string = "";
+    @Input() options: InputSelectOption[] = [];
+    @Input() placeholder: string = "Selecione uma opção";
+    @Output() onSelect = new EventEmitter<string>();
 
-    onChange(event: any) {
-        const value = event.target.value
-        const matchedOption = this.options.find((option) => option.value === value)
-        this.onSelect.emit(matchedOption)
+    onChange(event: Event): void {
+        const value = (event.target as HTMLSelectElement).value
+        this.value = value;
+        this.onSelect.emit(value);
     }
 }
