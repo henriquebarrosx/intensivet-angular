@@ -1,56 +1,54 @@
-<div class="body-container">
-    <div class="left-side">
-        <img src="assets/session-wallpaper.png" loading="lazy" />
+<div class="flex h-screen bg-white relative">
+    <div class="flex z-10">
+        <div class="left-side">
+            <img src="assets/session-wallpaper.png" loading="lazy" />
 
-        <div class="title">
-            <h1 class="font-bold">
-                Aproveite agora os benefícios da maior clínica com serviço de Teleinterconsulta da América do Sul.
-            </h1>
+            <div class="title">
+                <h1 class="font-bold">
+                    Pioneiros no mundo em Interconsulta Veterinária 24h/dia, 7 dias/semana, 365 dias/ano.
+                </h1>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="logo-container">
+                <app-logo class="logo-img">
+                </app-logo>
+            </div>
+
+            <div class="content-box">
+                <h1 class="font-black">
+                    Cadastrar
+                </h1>
+
+                <span class="font-regular">
+                    Aproveite agora os benefícios da maior clínica com serviço de Teleinterconsulta da América do Sul.
+                </span>
+
+                <form (ngSubmit)="signUp($event)">
+                    <profile-step *ngIf="shouldDisplayFirstStep()" [formGroup]="firstStepForm" [options]="profiles"
+                        (onSelect)="onProfileSelect($event)">
+                    </profile-step>
+
+                    <div class="form-actions">
+                        <button type="button" (click)="advanceToNextStep()" class="font-bold continue">
+                            Continuar
+                        </button>
+
+                        <button *ngIf="shouldDisplayReturnButton()" type="button" (click)="returnToPreviousStep()"
+                            class="font-bold return">
+                            Voltar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="sign-up-section">
+                <span class="font-regular">Já possui uma conta?</span>
+                <a [href]="signInPathname" class="font-bold">Entrar</a>
+            </div>
         </div>
     </div>
 
-    <div class="right-side">
-        <div class="logo-container">
-            <app-logo class="logo-img"></app-logo>
-        </div>
-
-        <div class="content-box">
-            <h1 class="font-black">
-                Cadastrar
-            </h1>
-
-            <span class="font-regular">
-                Aproveite agora os benefícios da maior clínica com serviço de Teleinterconsulta da América do Sul.
-            </span>
-
-            <form (ngSubmit)="signUp($event)">
-                <profile-step *ngIf="isFirstStep" [formGroup]="firstStepForm" [options]="profiles"
-                    (onSelect)="onProfileSelect($event)"></profile-step>
-
-                <div class="form-actions">
-                    <button type="button" (click)="advanceToNextStep()" class="font-bold continue">
-                        Continuar
-                    </button>
-
-                    <button *ngIf="isReturnButtonVisible" type="button" (click)="returnToPreviousStep()"
-                        class="font-bold return">
-                        Voltar
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <div class="sign-up-section">
-            <span class="font-regular">Já possui uma conta?</span>
-            <a [href]="signInPathname" class="font-bold">Entrar</a>
-        </div>
-    </div>
+    <user-register-modal></user-register-modal>
 </div>
-
-<!-- <input type="text" placeholder="Ex: John Doe" formControlName="fullName" class="font-regular" />
-                <input type="email" placeholder="example@gmail.com" formControlName="email" class="font-regular" />
-                <input type="password" placeholder="********" formControlName="password" class="font-regular" />
-                <input type="text" placeholder="(**) *****-****" formControlName="phoneNumber" class="font-regular" />
-                <input type="text" placeholder="Ex: São Paulo" formControlName="state" class="font-regular" />
-                <input type="text" placeholder="Ex: São Paulo" formControlName="city" class="font-regular" />
-                <input type="text" placeholder="Ex: São Paulo" formControlName="companyName" class="font-regular" /> -->

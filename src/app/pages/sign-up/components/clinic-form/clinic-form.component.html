@@ -1,0 +1,138 @@
+<div class="flex justify-end">
+    <div class="bg-white w-full lg:w-[50%] h-screen p-12 flex flex-col gap-20 overflow-y-auto">
+        <section class="flex flex-col gap-6">
+            <h1 class="font-black text-xl">
+                Informações da clínica / hospital
+            </h1>
+
+            <hr>
+
+            <div class="flex flex-col-reverse md:flex-row gap-6">
+                <div class="flex flex-col gap-4 w-full md:w-2/3">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex flex-col gap-2 w-full">
+                            <label class="font-regular uppercase text-[#738394]">
+                                Nome Fantasia
+                            </label>
+
+                            <input name="fantasy-name" formControlName="fullName" class="font-regular" />
+                        </div>
+
+                        <div class="flex flex-col gap-2 w-full">
+                            <label class="font-regular uppercase text-[#738394]">
+                                Razão Social
+                            </label>
+
+                            <input name="company-name" formControlName="companyName" class="font-regular" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex flex-col gap-2 w-full">
+                            <label class="font-regular uppercase text-[#738394]">
+                                CNPJ
+                            </label>
+
+                            <input name="CNPJ" placeholder="000.000.000/0000-0" formControlName="state"
+                                class="font-regular" />
+                        </div>
+
+                        <div class="flex flex-col gap-2 w-full">
+                            <label class="font-regular uppercase text-[#738394]">
+                                Contato
+                            </label>
+
+                            <input name="phone" placeholder="DDD + Número" formControlName="phoneNumber"
+                                class="font-regular" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center w-full md:w-1/3 relative">
+                    <button (click)="chooseAvatarImg()" class="">
+                        <img src="https://as2.ftcdn.net/v2/jpg/03/16/24/17/1000_F_316241700_nelkNZYF2SiK260dPeXmcGbm0dCZL3mz.jpg"
+                            loading="lazy" class="avatar" title="Alterar Avatar" />
+
+                        <div class="bg-white border border-[#ccc] rounded-md w-max py-1 px-3 absolute bottom-4 m-auto">
+                            <span class="font-regular text-[#738394]">
+                                Alterar
+                            </span>
+                        </div>
+                    </button>
+
+                    <input #userAvatarFieldset type="file" accept="image/*" class="hidden" />
+                </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col gap-6">
+            <h1 class="font-black text-xl">
+                Endereço
+            </h1>
+
+            <hr>
+
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex flex-col gap-2 w-full md:w-1/3">
+                    <label class="font-regular uppercase text-[#738394]">
+                        CEP
+                    </label>
+
+                    <input placeholder="00000-000" formControlName="cep" class="font-regular" />
+                </div>
+
+                <div class="flex flex-col gap-2 w-full md:w-2/3">
+                    <label class="font-regular uppercase text-[#738394]">
+                        Endereço
+                    </label>
+
+                    <input placeholder="Ex.: Avenida Menino Marcelo" formControlName="address" class="font-regular" />
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex flex-col gap-2 w-full md:w-1/3">
+                    <label class="font-regular uppercase text-[#738394]">
+                        Número
+                    </label>
+
+                    <input placeholder="Ex.: 000" formControlName="cep" class="font-regular" />
+                </div>
+
+                <div class="flex flex-col gap-2 w-full md:w-2/3">
+                    <label class="font-regular uppercase text-[#738394]">
+                        Complemento
+                    </label>
+
+                    <input placeholder="Ex.: Avenida Menino Marcelo" formControlName="address" class="font-regular" />
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex flex-col gap-2 w-full md:w-1/3">
+                    <label class="font-regular uppercase text-[#738394]">
+                        Bairro
+                    </label>
+
+                    <input placeholder="Ex.: Cidade Universitária" formControlName="cep" class="font-regular" />
+                </div>
+
+                <div class="flex flex-col gap-2 w-full md:w-1/3">
+                    <label class="font-regular uppercase text-[#738394]">
+                        Estado
+                    </label>
+
+                    <input placeholder="Ex.: Alagoas" formControlName="cep" class="font-regular" />
+                </div>
+
+                <div class="flex flex-col gap-2 w-full md:w-1/3">
+                    <label class="font-regular uppercase text-[#738394]">
+                        Cidade
+                    </label>
+
+                    <input placeholder="Ex.: Maceió" formControlName="address" class="font-regular" />
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

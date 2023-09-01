@@ -34,12 +34,7 @@ export class SignUpComponent {
     })
 
     public signInPathname: string = "/accounts/sign-in"
-    public isReturnButtonVisible: boolean = false
-
     public currentFormGroupStep: number = 1
-    public isFirstStep = this.currentFormGroupStep === 1
-    public iSecondStep = this.currentFormGroupStep === 2
-    public isThirdStep = this.currentFormGroupStep === 3
 
     onProfileSelect(selectedProfile: string): void {
         const profileValue = this.profiles.find((profile) => profile.value === selectedProfile)!
@@ -53,6 +48,22 @@ export class SignUpComponent {
 
     returnToPreviousStep(): void {
         this.currentFormGroupStep--
+    }
+
+    shouldDisplayReturnButton(): boolean {
+        return this.currentFormGroupStep > 1
+    }
+
+    shouldDisplayFirstStep(): boolean {
+        return this.currentFormGroupStep === 1
+    }
+
+    shouldDisplaySecondStep(): boolean {
+        return this.currentFormGroupStep === 2
+    }
+
+    shouldDisplayThirdStep(): boolean {
+        return this.currentFormGroupStep === 3
     }
 
     async signUp(event: any): Promise<void> {
